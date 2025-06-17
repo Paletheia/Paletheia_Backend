@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-l!t_ql3&$a)e641!(77t^apw82*fqevrj+$0sxs2qp*vd&8lau
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://paletheia-backend.onrender.com"]
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 
 
 # Application definition
