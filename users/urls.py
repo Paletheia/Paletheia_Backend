@@ -3,7 +3,8 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from .views import (
     UserRegistrationView, 
     UserLoginView,
-    GoogleLoginView
+    GoogleLoginView,
+    CheckTokenView
 )
 
 urlpatterns = [
