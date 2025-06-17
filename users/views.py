@@ -15,6 +15,7 @@ from .serializers import (
 )
 from .throttling import LoginRateThrottle, RegisterRateThrottle
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 
 User = get_user_model()
 
@@ -65,6 +66,12 @@ class UserLoginView(generics.CreateAPIView):
             {'error': 'Invalid credentials'},
             status=status.HTTP_401_UNAUTHORIZED
         )
+
+class CheckTokenView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        return Response(status=status.HTTP_200_OK)
 
 class GoogleLoginView(APIView):
     permission_classes = [AllowAny]
